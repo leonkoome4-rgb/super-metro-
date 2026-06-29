@@ -2,25 +2,112 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #222629;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-poppins);
+  --font-body: var(--font-inter);
+
+  /* Super Metro brand palette: grey body, orange livery band, white stripe, navy wordmark accent */
+  --color-metro-white: #ffffff;
+
+  --color-metro-grey-50: #f5f6f7;
+  --color-metro-grey-100: #e8eaec;
+  --color-metro-grey-300: #c2c6cb;
+  --color-metro-grey-500: #7c8389;
+  --color-metro-grey-700: #454b52;
+  --color-metro-grey-900: #222629;
+
+  --color-metro-orange-400: #ff9248;
+  --color-metro-orange-500: #f4791f;
+  --color-metro-orange-600: #d9620e;
+
+  --color-metro-navy-600: #2b3a8f;
+  --color-metro-navy-800: #1b2563;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background-color: rgba(244, 121, 31, 0.25);
+  color: #1b2563;
+}
+
+:focus-visible {
+  outline: 2px solid #f4791f;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f6f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f4791f;
+  border-radius: 999px;
+  border: 2px solid #f5f6f7;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 32s linear infinite reverse;
+}
+
+.marquee-row:hover .animate-marquee,
+.marquee-row:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
