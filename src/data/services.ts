@@ -1,12 +1,12 @@
 import { Bus, Plane, Users, Package } from "lucide-react";
 import type { Service } from "@/types";
+import { STATIONS } from "./stations";
 
 export const SERVICES: Service[] = [
   {
     slug: "city-routes",
     title: "City & Route Transport",
-    description:
-      "Reliable, WiFi-enabled buses on Routes 105, 236, 237 and 111 — connecting 15+ stations from Kikuyu to Thika to Kitengela.",
+    description: `Reliable, WiFi-enabled buses on Routes 105, 110, 111, 236, 237 and 126 — connecting ${STATIONS.length}+ stations from Kikuyu to Thika to Kitengela to Rongai.`,
     icon: Bus,
   },
   {
@@ -22,6 +22,7 @@ export const SERVICES: Service[] = [
     description:
       "Buses for events, corporate trips, and group travel — comfortable, punctual, and tailored to your itinerary.",
     icon: Users,
+    interactive: "callback",
   },
   {
     slug: "parcel-courier",
@@ -29,5 +30,6 @@ export const SERVICES: Service[] = [
     description:
       "Fast, secure parcel delivery along our routes, getting packages where they need to be, on schedule.",
     icon: Package,
+    interactive: "estimate",
   },
 ];

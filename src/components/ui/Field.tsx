@@ -10,18 +10,25 @@ type FieldWrapperProps = {
 
 function FieldWrapper({ label, htmlFor, error, children, className }: FieldWrapperProps) {
   return (
-    <div className={cn("flex flex-col gap-1.5", className)}>
-      <label htmlFor={htmlFor} className="text-sm font-medium text-metro-grey-700">
+    <div className={cn("group flex flex-col gap-1.5", className)}>
+      <label
+        htmlFor={htmlFor}
+        className="text-sm font-medium text-metro-grey-700 transition-colors duration-200 group-focus-within:text-metro-orange-600"
+      >
         {label}
       </label>
       {children}
-      {error && <span className="text-xs font-medium text-red-600">{error}</span>}
+      {error && (
+        <span className="animate-[shake_0.4s_ease-in-out] text-xs font-medium text-red-600">
+          {error}
+        </span>
+      )}
     </div>
   );
 }
 
 const fieldClasses =
-  "w-full rounded-lg border border-metro-grey-300 bg-white px-4 py-2.5 text-sm text-metro-grey-900 outline-none transition-colors duration-200 focus:border-metro-orange-500 focus:ring-2 focus:ring-metro-orange-500/20";
+  "w-full rounded-lg border border-metro-grey-300 bg-white px-4 py-2.5 text-sm text-metro-grey-900 outline-none transition-all duration-200 focus:border-metro-orange-500 focus:ring-2 focus:ring-metro-orange-500/20 focus:shadow-sm";
 
 export function Input({
   label,

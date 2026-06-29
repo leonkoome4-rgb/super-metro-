@@ -6,6 +6,8 @@ import { staggerContainer, fadeUp, viewportOnce } from "@/lib/animations";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import Card from "../ui/Card";
+import ServiceCallbackForm from "../forms/ServiceCallbackForm";
+import ParcelEstimator from "../forms/ParcelEstimator";
 
 export default function ServicesGrid() {
   return (
@@ -28,7 +30,7 @@ export default function ServicesGrid() {
             const Icon = service.icon;
             return (
               <motion.div key={service.slug} variants={fadeUp}>
-                <Card className="h-full" tilt>
+                <Card className="h-full" tilt={!service.interactive}>
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 3 }}
                     transition={{ duration: 0.3 }}
@@ -42,6 +44,8 @@ export default function ServicesGrid() {
                   <p className="mt-2 text-sm leading-relaxed text-metro-grey-500">
                     {service.description}
                   </p>
+                  {service.interactive === "callback" && <ServiceCallbackForm />}
+                  {service.interactive === "estimate" && <ParcelEstimator />}
                 </Card>
               </motion.div>
             );

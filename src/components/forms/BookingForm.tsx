@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { STATIONS } from "@/data/stations";
 import { estimateShuttleFare, formatKES, isValidKenyanPhone } from "@/lib/utils";
+import { staggerContainer, fadeUp } from "@/lib/animations";
 import type { BookingFormValues } from "@/types";
 import { Input, Select } from "../ui/Field";
 import Button from "../ui/Button";
@@ -75,93 +76,117 @@ export default function BookingForm() {
         ) : (
           <motion.form
             key="form"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial="hidden"
+            animate="visible"
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            variants={staggerContainer(0.07)}
             onSubmit={handleSubmit}
             className="grid gap-5 sm:grid-cols-2"
           >
-            <Select
-              id="from"
-              label="From"
-              value={values.from}
-              error={errors.from}
-              onChange={(e) => update("from", e.target.value)}
+            <motion.div variants={fadeUp}>
+              <Select
+                id="from"
+                label="From"
+                value={values.from}
+                error={errors.from}
+                onChange={(e) => update("from", e.target.value)}
+              >
+                {LOCATIONS.map((loc) => (
+                  <option key={loc} value={loc}>
+                    {loc}
+                  </option>
+                ))}
+              </Select>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <Select
+                id="to"
+                label="To"
+                value={values.to}
+                error={errors.to}
+                onChange={(e) => update("to", e.target.value)}
+              >
+                {LOCATIONS.map((loc) => (
+                  <option key={loc} value={loc}>
+                    {loc}
+                  </option>
+                ))}
+              </Select>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <Input
+                id="date"
+                label="Date"
+                type="date"
+                value={values.date}
+                error={errors.date}
+                onChange={(e) => update("date", e.target.value)}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <Input
+                id="time"
+                label="Time"
+                type="time"
+                value={values.time}
+                error={errors.time}
+                onChange={(e) => update("time", e.target.value)}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <Input
+                id="passengers"
+                label="Passengers"
+                type="number"
+                min={1}
+                max={50}
+                value={values.passengers}
+                error={errors.passengers}
+                onChange={(e) => update("passengers", Number(e.target.value))}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <Input
+                id="phone"
+                label="Phone"
+                type="tel"
+                placeholder="0722730430"
+                value={values.phone}
+                error={errors.phone}
+                onChange={(e) => update("phone", e.target.value)}
+              />
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              className="col-span-full mt-2 flex flex-col items-start justify-between gap-4 rounded-xl bg-metro-grey-50 p-4 sm:flex-row sm:items-center"
             >
-              {LOCATIONS.map((loc) => (
-                <option key={loc} value={loc}>
-                  {loc}
-                </option>
-              ))}
-            </Select>
-
-            <Select
-              id="to"
-              label="To"
-              value={values.to}
-              error={errors.to}
-              onChange={(e) => update("to", e.target.value)}
-            >
-              {LOCATIONS.map((loc) => (
-                <option key={loc} value={loc}>
-                  {loc}
-                </option>
-              ))}
-            </Select>
-
-            <Input
-              id="date"
-              label="Date"
-              type="date"
-              value={values.date}
-              error={errors.date}
-              onChange={(e) => update("date", e.target.value)}
-            />
-
-            <Input
-              id="time"
-              label="Time"
-              type="time"
-              value={values.time}
-              error={errors.time}
-              onChange={(e) => update("time", e.target.value)}
-            />
-
-            <Input
-              id="passengers"
-              label="Passengers"
-              type="number"
-              min={1}
-              max={50}
-              value={values.passengers}
-              error={errors.passengers}
-              onChange={(e) => update("passengers", Number(e.target.value))}
-            />
-
-            <Input
-              id="phone"
-              label="Phone"
-              type="tel"
-              placeholder="0722730430"
-              value={values.phone}
-              error={errors.phone}
-              onChange={(e) => update("phone", e.target.value)}
-            />
-
-            <div className="col-span-full mt-2 flex flex-col items-start justify-between gap-4 rounded-xl bg-metro-grey-50 p-4 sm:flex-row sm:items-center">
               <div>
                 <p className="text-xs uppercase tracking-wide text-metro-grey-500">
                   Estimated Total
                 </p>
-                <p className="font-heading text-2xl font-bold text-metro-navy-800">
-                  {formatKES(total)}
-                </p>
+                <AnimatePresence mode="popLayout">
+                  <motion.p
+                    key={total}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.25 }}
+                    className="font-heading text-2xl font-bold text-metro-navy-800"
+                  >
+                    {formatKES(total)}
+                  </motion.p>
+                </AnimatePresence>
               </div>
               <Button type="submit" variant="primary">
                 Book Airport Shuttle
               </Button>
-            </div>
+            </motion.div>
           </motion.form>
         )}
       </AnimatePresence>

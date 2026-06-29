@@ -74,7 +74,7 @@ export default function Hero() {
           className="max-w-3xl font-heading text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl"
         >
           Welcome to Super Metro
-          <span className="block text-metro-orange-500">
+          <span className="block italic text-metro-orange-500">
             Moving beyond boundaries, one ride at a time.
           </span>
         </motion.h1>

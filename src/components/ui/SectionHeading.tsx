@@ -28,7 +28,7 @@ export default function SectionHeading({
         <Reveal delay={0}>
           <span
             className={cn(
-              "inline-block rounded-full px-4 py-1 text-xs font-heading font-semibold uppercase tracking-[0.18em]",
+              "inline-block rounded-full px-4 py-1 text-xs font-heading font-semibold italic uppercase tracking-[0.18em]",
               light
                 ? "bg-white/10 text-metro-orange-400"
                 : "bg-metro-orange-500/10 text-metro-orange-600"

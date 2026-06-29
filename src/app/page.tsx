@@ -3,7 +3,6 @@ import ImpactStats from "@/components/sections/ImpactStats";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import ElectricFleet from "@/components/sections/ElectricFleet";
 import Testimonials from "@/components/sections/Testimonials";
-import PartnersSection from "@/components/sections/PartnersSection";
 import StationsNetwork from "@/components/sections/StationsNetwork";
 import AirportShuttleBooking from "@/components/sections/AirportShuttleBooking";
 import GallerySection from "@/components/sections/GallerySection";
@@ -17,7 +16,6 @@ export default function Home() {
       <ServicesGrid />
       <ElectricFleet />
       <Testimonials />
-      <PartnersSection />
       <StationsNetwork />
       <AirportShuttleBooking />
       <GallerySection />

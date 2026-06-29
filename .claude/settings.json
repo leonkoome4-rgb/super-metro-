@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(find /Users/leonkoome4gmail.com/metro/.next -maxdepth 3 2>&1; echo \"---STAT---\"; stat -f \"%Sm %N\" /Users/leonkoome4gmail.com/metro 2>&1; echo \"---TRASH---\"; ls -la ~/.Trash 2>&1 | grep -i -E \"metro|insur\" ; echo \"---DISKUTIL---\"; df -h /Users/leonkoome4gmail.com/metro 2>&1)",
+      "Read(//Users/leonkoome4gmail.com/.Trash/**)"
     ]
   }
 }

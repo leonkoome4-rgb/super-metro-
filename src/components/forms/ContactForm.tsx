@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { isValidEmail } from "@/lib/utils";
+import { staggerContainer, fadeUp } from "@/lib/animations";
 import type { ContactFormValues } from "@/types";
 import { Input, Textarea } from "../ui/Field";
 import Button from "../ui/Button";
@@ -59,29 +60,33 @@ export default function ContactForm() {
         ) : (
           <motion.form
             key="form"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial="hidden"
+            animate="visible"
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            variants={staggerContainer(0.08)}
             onSubmit={handleSubmit}
             className="grid gap-5 sm:grid-cols-2"
           >
-            <Input
-              id="contact-name"
-              label="Your Name"
-              value={values.name}
-              error={errors.name}
-              onChange={(e) => update("name", e.target.value)}
-            />
-            <Input
-              id="contact-email"
-              label="Email"
-              type="email"
-              value={values.email}
-              error={errors.email}
-              onChange={(e) => update("email", e.target.value)}
-            />
-            <div className="sm:col-span-2">
+            <motion.div variants={fadeUp}>
+              <Input
+                id="contact-name"
+                label="Your Name"
+                value={values.name}
+                error={errors.name}
+                onChange={(e) => update("name", e.target.value)}
+              />
+            </motion.div>
+            <motion.div variants={fadeUp}>
+              <Input
+                id="contact-email"
+                label="Email"
+                type="email"
+                value={values.email}
+                error={errors.email}
+                onChange={(e) => update("email", e.target.value)}
+              />
+            </motion.div>
+            <motion.div variants={fadeUp} className="sm:col-span-2">
               <Input
                 id="contact-phone"
                 label="Phone (optional)"
@@ -89,8 +94,8 @@ export default function ContactForm() {
                 value={values.phone}
                 onChange={(e) => update("phone", e.target.value)}
               />
-            </div>
-            <div className="sm:col-span-2">
+            </motion.div>
+            <motion.div variants={fadeUp} className="sm:col-span-2">
               <Textarea
                 id="contact-message"
                 label="Message"
@@ -99,12 +104,12 @@ export default function ContactForm() {
                 onChange={(e) => update("message", e.target.value)}
                 placeholder="How can we help?"
               />
-            </div>
-            <div className="col-span-full flex justify-end">
+            </motion.div>
+            <motion.div variants={fadeUp} className="col-span-full flex justify-end">
               <Button type="submit" variant="primary">
                 Send Message
               </Button>
-            </div>
+            </motion.div>
           </motion.form>
         )}
       </AnimatePresence>

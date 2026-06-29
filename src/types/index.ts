@@ -5,11 +5,7 @@ export type Service = {
   title: string;
   description: string;
   icon: LucideIcon;
-};
-
-export type Partner = {
-  name: string;
-  logo: string;
+  interactive?: "callback" | "estimate";
 };
 
 export type GalleryImage = {

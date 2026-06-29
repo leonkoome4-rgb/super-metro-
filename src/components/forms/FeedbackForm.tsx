@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { FeedbackFormValues } from "@/types";
+import { staggerContainer, fadeUp } from "@/lib/animations";
 import { Input, Select, Textarea } from "../ui/Field";
 import Button from "../ui/Button";
 import FormConfirmation from "./FormConfirmation";
@@ -58,38 +59,44 @@ export default function FeedbackForm() {
         ) : (
           <motion.form
             key="form"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial="hidden"
+            animate="visible"
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            variants={staggerContainer(0.08)}
             onSubmit={handleSubmit}
             className="grid gap-5 sm:grid-cols-2"
           >
-            <Input
-              id="fb-name"
-              label="Your Name"
-              value={values.name}
-              error={errors.name}
-              onChange={(e) => update("name", e.target.value)}
-            />
-            <Input
-              id="fb-contact"
-              label="Phone or Email"
-              value={values.contact}
-              error={errors.contact}
-              onChange={(e) => update("contact", e.target.value)}
-            />
-            <Select
-              id="fb-category"
-              label="Category"
-              value={values.category}
-              onChange={(e) => update("category", e.target.value as FeedbackFormValues["category"])}
-            >
-              <option value="Feedback">Feedback</option>
-              <option value="Complaint">Complaint</option>
-              <option value="Suggestion">Suggestion</option>
-            </Select>
-            <div className="sm:col-span-2">
+            <motion.div variants={fadeUp}>
+              <Input
+                id="fb-name"
+                label="Your Name"
+                value={values.name}
+                error={errors.name}
+                onChange={(e) => update("name", e.target.value)}
+              />
+            </motion.div>
+            <motion.div variants={fadeUp}>
+              <Input
+                id="fb-contact"
+                label="Phone or Email"
+                value={values.contact}
+                error={errors.contact}
+                onChange={(e) => update("contact", e.target.value)}
+              />
+            </motion.div>
+            <motion.div variants={fadeUp}>
+              <Select
+                id="fb-category"
+                label="Category"
+                value={values.category}
+                onChange={(e) => update("category", e.target.value as FeedbackFormValues["category"])}
+              >
+                <option value="Feedback">Feedback</option>
+                <option value="Complaint">Complaint</option>
+                <option value="Suggestion">Suggestion</option>
+              </Select>
+            </motion.div>
+            <motion.div variants={fadeUp} className="sm:col-span-2">
               <Textarea
                 id="fb-message"
                 label="Your Message"
@@ -98,12 +105,12 @@ export default function FeedbackForm() {
                 onChange={(e) => update("message", e.target.value)}
                 placeholder="Tell us about your experience..."
               />
-            </div>
-            <div className="col-span-full flex justify-end">
+            </motion.div>
+            <motion.div variants={fadeUp} className="col-span-full flex justify-end">
               <Button type="submit" variant="primary">
                 Submit
               </Button>
-            </div>
+            </motion.div>
           </motion.form>
         )}
       </AnimatePresence>
