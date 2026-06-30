@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import FloatingBookCTA from "@/components/layout/FloatingBookCTA";
+import FloatingReportCTA from "@/components/layout/FloatingReportCTA";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -51,6 +52,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <FloatingBookCTA />
+        <FloatingReportCTA />
       </body>
     </html>
   );

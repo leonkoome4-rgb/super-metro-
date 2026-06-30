@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Zap } from "lucide-react";
+import { Zap, Siren } from "lucide-react";
 import Button from "../ui/Button";
 import { useMediaQuery } from "@/lib/use-media-query";
 import { useIsReducedMotion } from "@/lib/use-reduced-motion";
@@ -105,6 +105,20 @@ export default function Hero() {
             >
               Explore Services
             </Button>
+          </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
+        >
+          <Link
+            href="#report"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-red-400 hover:text-red-300"
+          >
+            <Siren size={15} />
+            See bad driving? Report a vehicle
           </Link>
         </motion.div>
       </div>

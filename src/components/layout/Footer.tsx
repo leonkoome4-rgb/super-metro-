@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, MapPin } from "lucide-react";
-import { FOOTER_LINKS, PHONE_NUMBERS, COMPANY_ADDRESS, SOCIAL_LINKS } from "@/data/nav";
+import { Phone, Mail, MapPin } from "lucide-react";
+import { FOOTER_LINKS, PHONE_NUMBERS, COMPANY_ADDRESS, COMPANY_EMAIL, SOCIAL_LINKS } from "@/data/nav";
 import { FacebookIcon, InstagramIcon, TwitterIcon } from "./SocialIcons";
 import Container from "../ui/Container";
 
@@ -67,6 +67,12 @@ export default function Footer() {
                 </a>
               </li>
             ))}
+            <li className="flex items-center gap-2 text-sm text-metro-grey-300">
+              <Mail size={15} className="text-metro-orange-400" />
+              <a href={`mailto:${COMPANY_EMAIL}`} className="hover:text-metro-orange-400">
+                {COMPANY_EMAIL}
+              </a>
+            </li>
             <li className="flex items-start gap-2 text-sm text-metro-grey-300">
               <MapPin size={15} className="mt-0.5 shrink-0 text-metro-orange-400" />
               <span>{COMPANY_ADDRESS}</span>

@@ -41,3 +41,9 @@ export type ContactFormValues = {
   phone: string;
   message: string;
 };
+
+export type IncidentReportValues = {
+  vehicleReg: string;
+  incidentType: string;
+  note: string;
+};

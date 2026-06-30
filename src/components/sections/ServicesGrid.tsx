@@ -1,10 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { Siren } from "lucide-react";
 import { SERVICES } from "@/data/services";
 import { staggerContainer, fadeUp, viewportOnce } from "@/lib/animations";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
+import Reveal from "../ui/Reveal";
 import Card from "../ui/Card";
 import ServiceCallbackForm from "../forms/ServiceCallbackForm";
 import ParcelEstimator from "../forms/ParcelEstimator";
@@ -51,6 +54,21 @@ export default function ServicesGrid() {
             );
           })}
         </motion.div>
+
+        <Reveal className="mt-8">
+          <Link
+            href="#report"
+            className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-red-600/20 bg-metro-grey-900 px-6 py-5 transition-colors hover:border-red-600/50"
+          >
+            <span className="flex items-center gap-3">
+              <Siren size={20} className="shrink-0 text-red-400" />
+              <span className="text-sm font-semibold text-white">
+                Witnessed reckless driving or overcharging?{" "}
+                <span className="text-red-400">Report it now →</span>
+              </span>
+            </span>
+          </Link>
+        </Reveal>
       </Container>
     </section>
   );

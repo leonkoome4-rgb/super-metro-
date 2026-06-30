@@ -6,6 +6,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import StationsNetwork from "@/components/sections/StationsNetwork";
 import AirportShuttleBooking from "@/components/sections/AirportShuttleBooking";
 import GallerySection from "@/components/sections/GallerySection";
+import ReportIncidentSection from "@/components/sections/ReportIncidentSection";
 import FeedbackSection from "@/components/sections/FeedbackSection";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <StationsNetwork />
       <AirportShuttleBooking />
       <GallerySection />
+      <ReportIncidentSection />
       <FeedbackSection />
     </>
   );

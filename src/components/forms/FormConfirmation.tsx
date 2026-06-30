@@ -1,14 +1,17 @@
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import Button from "../ui/Button";
 
 export default function FormConfirmation({
   title,
   message,
   onReset,
+  light = false,
 }: {
   title: string;
   message: string;
   onReset: () => void;
+  light?: boolean;
 }) {
   return (
     <motion.div
@@ -54,7 +57,10 @@ export default function FormConfirmation({
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.55 }}
-        className="mt-4 font-heading text-2xl font-bold text-metro-navy-800"
+        className={cn(
+          "mt-4 font-heading text-2xl font-bold",
+          light ? "text-white" : "text-metro-navy-800"
+        )}
       >
         {title}
       </motion.h3>
@@ -62,7 +68,7 @@ export default function FormConfirmation({
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.65 }}
-        className="mt-2 max-w-sm text-sm text-metro-grey-500"
+        className={cn("mt-2 max-w-sm text-sm", light ? "text-neutral-400" : "text-metro-grey-500")}
       >
         {message}
       </motion.p>
@@ -71,7 +77,12 @@ export default function FormConfirmation({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.75 }}
       >
-        <Button type="button" variant="secondary" className="mt-6" onClick={onReset}>
+        <Button
+          type="button"
+          variant="secondary"
+          className={cn("mt-6", light && "border-white/30 text-white hover:bg-white/10")}
+          onClick={onReset}
+        >
           Submit Another Response
         </Button>
       </motion.div>

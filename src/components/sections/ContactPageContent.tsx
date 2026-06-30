@@ -1,5 +1,5 @@
-import { Phone, MapPin, Clock } from "lucide-react";
-import { PHONE_NUMBERS, COMPANY_ADDRESS } from "@/data/nav";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { PHONE_NUMBERS, COMPANY_ADDRESS, COMPANY_EMAIL } from "@/data/nav";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import Reveal from "../ui/Reveal";
@@ -39,6 +39,21 @@ export default function ContactPageContent() {
                     </li>
                   ))}
                 </ul>
+              </Card>
+
+              <Card className="bg-white/5 border-white/10">
+                <div className="flex items-center gap-3">
+                  <Mail size={20} className="text-metro-orange-400" />
+                  <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
+                    Email
+                  </h3>
+                </div>
+                <a
+                  href={`mailto:${COMPANY_EMAIL}`}
+                  className="mt-4 block text-sm text-metro-grey-300 hover:text-metro-orange-400"
+                >
+                  {COMPANY_EMAIL}
+                </a>
               </Card>
 
               <Card className="bg-white/5 border-white/10">
