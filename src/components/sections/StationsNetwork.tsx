@@ -11,7 +11,7 @@ import NetworkMap from "./NetworkMap";
 
 export default function StationsNetwork() {
   return (
-    <section className="bg-white py-24">
+    <section id="network" className="bg-white py-24">
       <Container>
         <SectionHeading
           eyebrow="Our Network"
