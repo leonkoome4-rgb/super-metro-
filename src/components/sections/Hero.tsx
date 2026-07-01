@@ -4,8 +4,9 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Zap, Siren } from "lucide-react";
+import { Zap } from "lucide-react";
 import Button from "../ui/Button";
+
 import { useMediaQuery } from "@/lib/use-media-query";
 import { useIsReducedMotion } from "@/lib/use-reduced-motion";
 
@@ -40,6 +41,7 @@ export default function Hero() {
           alt="Fleet of Super Metro buses"
           fill
           priority
+          sizes="100vw"
           className="object-cover object-[center_30%]"
         />
       </motion.div>
@@ -49,33 +51,30 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, rotate: -15, scale: 0.8 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-6 flex flex-wrap items-center gap-3"
         >
           <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-heading font-semibold uppercase tracking-[0.18em] text-metro-orange-400">
             Super Metro Transport
           </span>
-          <motion.span
-            animate={{ y: [0, -4, 0] }}
-            transition={{ duration: 2.4, repeat: reducedMotion ? 0 : Infinity, ease: "easeInOut" }}
-            className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-heading font-semibold uppercase tracking-[0.14em] text-emerald-400"
-          >
-            <Zap size={13} className="fill-emerald-400" />
-            100% Electric Buses, Powered by BasiGo
-          </motion.span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-heading font-semibold uppercase tracking-[0.14em] text-white/70">
+            <Zap size={13} className="fill-white/70" />
+            100% Electric — Powered by BasiGo
+          </span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          className="max-w-3xl font-heading text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl"
+          className="max-w-4xl font-heading text-5xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl"
         >
-          Welcome to Super Metro
-          <span className="block italic text-metro-orange-500">
-            Moving beyond boundaries, one ride at a time.
+          Super Metro
+          <span className="mt-2 block font-heading text-3xl font-semibold italic leading-snug text-metro-orange-500 sm:text-4xl lg:text-5xl xl:text-6xl">
+            Moving beyond boundaries,
+            <br className="hidden sm:block" /> one ride at a time.
           </span>
         </motion.h1>
 
@@ -83,10 +82,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
-          className="mt-6 max-w-xl text-lg leading-relaxed text-metro-grey-300"
+          className="mt-8 max-w-lg text-base leading-relaxed text-metro-grey-300 sm:text-lg"
         >
-          Experience the difference with Super Metro Transport. Our commitment
-          to excellence in every mile — since 2013.
+          Since 2013, Nairobi&apos;s standard for clean, disciplined, and
+          reliable public transport — 500+ buses across every major corridor.
         </motion.p>
 
         <motion.div
@@ -108,33 +107,7 @@ export default function Hero() {
           </Link>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
-        >
-          <Link
-            href="#report"
-            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-red-400 hover:text-red-300"
-          >
-            <Siren size={15} />
-            See bad driving? Report a vehicle
-          </Link>
-        </motion.div>
       </div>
-
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-        className="absolute inset-x-0 bottom-0 h-3 origin-left bg-metro-white"
-      />
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
-        className="absolute inset-x-0 bottom-0 h-3 origin-left translate-y-3 bg-metro-orange-500"
-      />
     </section>
   );
 }

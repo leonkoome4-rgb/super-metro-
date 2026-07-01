@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { Siren } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 
 export default function FloatingReportCTA() {
   const [visible, setVisible] = useState(false);
@@ -25,14 +25,13 @@ export default function FloatingReportCTA() {
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="fixed bottom-6 left-6 z-40"
         >
-          <Link href="/#report" className="group relative flex items-center">
-            <span className="absolute inset-0 rounded-full bg-red-600 opacity-60 animate-ping" />
+          <Link href="/#report">
             <motion.span
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
-              className="relative flex items-center gap-2 rounded-full bg-red-600 px-5 py-3.5 font-heading text-sm font-semibold text-white shadow-lg shadow-red-600/40"
+              className="flex items-center gap-2 rounded-full bg-metro-navy-800 px-5 py-3.5 font-heading text-sm font-semibold text-white shadow-lg"
             >
-              <Siren size={17} />
+              <AlertTriangle size={16} className="text-metro-orange-400" />
               <span className="hidden sm:inline">Report</span>
             </motion.span>
           </Link>

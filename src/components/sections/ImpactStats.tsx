@@ -10,13 +10,6 @@ export default function ImpactStats() {
   return (
     <section className="relative overflow-hidden bg-metro-navy-800 py-16">
       <div className="absolute inset-x-0 top-0 h-1.5 bg-metro-orange-500" />
-      <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(135deg, #fff 0px, #fff 2px, transparent 2px, transparent 36px)",
-        }}
-      />
       <Container>
         <motion.div
           initial="hidden"

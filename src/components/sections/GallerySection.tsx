@@ -4,12 +4,13 @@ import GalleryGrid from "../gallery/GalleryGrid";
 
 export default function GallerySection() {
   return (
-    <section id="gallery" className="bg-white py-24">
+    <section id="gallery" className="bg-metro-grey-900 py-24">
       <Container>
         <SectionHeading
           eyebrow="Visual Story"
           title="Step Inside Our Visual Story"
           subtitle="A look at our fleet, our stations, and the people who keep Super Metro moving."
+          light
         />
         <div className="mt-14">
           <GalleryGrid />

@@ -82,7 +82,7 @@ export default function Footer() {
 
         <div>
           <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
-            Find Us On Our Socials
+            Follow Us
           </h3>
           <div className="mt-4 flex gap-3">
             {SOCIAL_LINKS.map((social) => {

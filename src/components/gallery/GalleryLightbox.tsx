@@ -68,6 +68,7 @@ export default function GalleryLightbox({
                 src={current.src}
                 alt={current.alt}
                 fill
+                sizes="100vw"
                 className="object-cover"
               />
             </div>

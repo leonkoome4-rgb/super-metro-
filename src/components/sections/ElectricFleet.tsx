@@ -45,7 +45,7 @@ export default function ElectricFleet() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={viewportOnce}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-xs font-heading font-bold uppercase tracking-wide text-white shadow-lg"
+                className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-metro-navy-700 px-4 py-2 text-xs font-heading font-bold uppercase tracking-wide text-white shadow-lg"
               >
                 <Zap size={14} className="fill-white" />
                 100% Electric
@@ -74,7 +74,7 @@ export default function ElectricFleet() {
                 const Icon = fact.icon;
                 return (
                   <motion.div key={fact.title} variants={fadeUp} className="flex gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-metro-orange-500/10 text-metro-orange-500">
                       <Icon size={20} />
                     </span>
                     <div>

@@ -132,14 +132,9 @@ export default function Navbar() {
                   transition={{ duration: 1.4, repeat: reducedMotion ? 0 : 3, repeatDelay: 0.3, ease: "easeOut" }}
                   className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-4 gap-y-2 px-6 py-3.5 text-center sm:px-8 sm:py-4"
                 >
-                  <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-metro-orange-500 px-4 py-1.5 text-xs font-heading font-bold italic uppercase tracking-wide text-white shadow-sm sm:text-sm">
-                    <motion.span
-                      animate={reducedMotion ? { opacity: 1 } : { opacity: [1, 0.3, 1] }}
-                      transition={{ duration: 1.6, repeat: reducedMotion ? 0 : Infinity, ease: "easeInOut" }}
-                      className="h-2 w-2 rounded-full bg-white"
-                    />
+                  <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-metro-orange-500 px-4 py-1.5 text-xs font-heading font-bold uppercase tracking-wide text-white shadow-sm sm:text-sm">
                     <Megaphone size={15} />
-                    Breaking News
+                    Announcement
                   </span>
                   <p className="text-sm font-semibold text-white sm:text-base">
                     {ANNOUNCEMENT.message}
@@ -230,6 +225,12 @@ export default function Navbar() {
                 <span className="absolute -bottom-1.5 left-0 h-[2px] w-full origin-left scale-x-0 bg-metro-orange-500 transition-transform duration-300 ease-out group-hover:scale-x-100" />
               </Link>
             ))}
+            <Link
+              href="/#booking"
+              className="inline-flex items-center rounded-full bg-metro-orange-500 px-5 py-2.5 font-heading text-sm font-bold text-white transition-colors hover:bg-metro-orange-600"
+            >
+              Book Now
+            </Link>
           </nav>
 
           <button
@@ -286,8 +287,8 @@ export default function Navbar() {
                 <Megaphone size={28} />
               </motion.div>
 
-              <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-metro-orange-50 px-3 py-1 text-xs font-heading font-bold italic uppercase tracking-wide text-metro-orange-600">
-                Breaking News
+              <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-metro-orange-50 px-3 py-1 text-xs font-heading font-bold uppercase tracking-wide text-metro-orange-600">
+                Announcement
               </span>
 
               <h3 className="font-heading text-xl font-bold text-metro-navy-900 sm:text-2xl">

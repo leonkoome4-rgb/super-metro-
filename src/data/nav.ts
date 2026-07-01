@@ -2,6 +2,7 @@ import type { NavLink } from "@/types";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/#home" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/#services" },
   { label: "Gallery", href: "/#gallery" },
   { label: "Contact Us", href: "/contact" },
@@ -9,10 +10,10 @@ export const NAV_LINKS: NavLink[] = [
 
 export const FOOTER_LINKS: NavLink[] = [
   { label: "Home", href: "/#home" },
+  { label: "About Us", href: "/about" },
   { label: "Services", href: "/#services" },
   { label: "Gallery", href: "/#gallery" },
   { label: "Report an Incident", href: "/#report" },
-  { label: "Feedback", href: "/#feedback" },
   { label: "Contact Us", href: "/contact" },
 ];
 
